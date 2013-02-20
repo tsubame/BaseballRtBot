@@ -54,6 +54,7 @@ function exec() {
 
 	async.series([
 		function(callback) {
+/*
 			var model = require('./retweet_model');
 			// DBから取得
 			model.getRecentRetweets(100, function(tweets) {
@@ -61,7 +62,8 @@ function exec() {
 				console.log(recent_retweets);
 				callback();
 			});
-/*
+*/
+
 
 			// 自分の最近のRTを取得
 			tw.setAccount(CONST.ACCOUNT.TWEET);
@@ -69,7 +71,6 @@ function exec() {
 				recent_retweets = tweets;
 				callback();
 			});
-*/
 		},
 		function(callback) {
 			// TLから100RT以上のツイートを取得
