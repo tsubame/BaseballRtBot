@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+	<%
+	for(var i in retweets) {
+	%>
+
+		<b><%= retweets[i].user_name %></b><br />
+		<%= retweets[i].text %><br />
+		RT : <%= retweets[i].rt_count %>　　　<%= retweets[i].posted %><br />
+
+<br />
+<br />
+	<%
+	}
+	%>
+
+
+  </body>
+</html>

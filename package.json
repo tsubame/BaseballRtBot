@@ -1,0 +1,20 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "async": "*",
+    "express": "3.0.6",
+    "ejs": "*",
+    "mongoose": "2.4.7",
+    "jade": "*",
+    "oauth": "*",
+    "passport": "*",
+    "passport-oauth": "*",
+    "passport-twitter": "*",
+    "nodemailer": "~0.3.37"
+  }
+}
