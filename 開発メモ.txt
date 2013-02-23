@@ -1,7 +1,7 @@
 ・twitterAPI1と1.1の違いを把握
   1はいつまで使える？
 
-・名前変更 tweet → retweet
+//・名前変更 tweet → retweet
 
 ・URLや関数名の名前も変更
 

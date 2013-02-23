@@ -186,7 +186,7 @@ function getTodaysRetweets(callback) {
 				var id = result[i].id;
 				tweets[id] = result[i];
 			}
-			//console.log(tweets);
+			console.log(tweets);
 			callback(tweets);
 			//callback(result);
 		}

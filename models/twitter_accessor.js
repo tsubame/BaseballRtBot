@@ -299,9 +299,7 @@ function tweetJsonToObject(json_data, callback) {
 	var	posted_mts = Date.parse(tweet_data.created_at);
 	var posted = new Date();
 	posted.setTime(posted_mts);
-//console.log(tweet_data);
 
-try {
 	var tweet = {
 		id: 	     tweet_data.id_str,
 		user_id:     tweet_data.user.id_str,
@@ -315,10 +313,7 @@ try {
 		rt_user:     rt_user,
 		is_deleted:  false
 	};
-} catch(e) {
-console.log(tweet_data);
-	console.log(e);
-}
+
 	callback(tweet);
 }
 
