@@ -8,34 +8,59 @@ var app_config = require('./app_config');
  * 開発中は1
  * リリース時は0
  */
-var DEV_LEVEL = 0; //1;
+var DEV_LEVEL = app_config.dev_level;
+
+/**
+ * ログファイルのパス
+ */
+var LOG_FILE_PATH = './logs/error.log';
+
+/**
+ * log4jsのオプション
+ */
+exports.LOG4JS_CONFIG = {
+		appenders: [{
+		'type': 'file',
+		'filename': LOG_FILE_PATH
+		}]
+	};
 
 /**
  * TLから1度に取得するツイートの数
  */
-var TL_GET_COUNT_ONCE = 200;
-
-exports.TL_GET_COUNT_ONCE = TL_GET_COUNT_ONCE;
+exports.TL_GET_COUNT_ONCE = 200;
 
 /**
  * この数以上のRT数でリツイート
  */
-var BASE_RT_COUNT = 50;//100;
+exports.BASE_RT_COUNT = app_config.base_rt_count; //70;
 
-exports.BASE_RT_COUNT = BASE_RT_COUNT;
+/**
+ * この数以上でツイート候補を取得
+ */
+exports.CAND_BASE_RT_COUNT = app_config.cand_base_rt_count; //50;
 
 /**
  * トップページのアドレス
  */
-//exports.APP_URL = 'http://kuroneko.info:3000/';
 exports.APP_URL = app_config.app_url;
 
 /**
  * OAuthコールバックのURL
  */
-var OAUTH_CALLBACK_URL  = 'http://127.0.0.1:3000/auth/tweet/callback';
+exports.OAUTH_CALLBACK_URL = app_config.app_url + 'auth/tweet/callback';
 
-exports.OAUTH_CALLBACK_URL = OAUTH_CALLBACK_URL;
+
+/**
+ * log4j
+ * ログファイル名
+ *
+ */
+exports.LOG = {
+		DIR: './logs/',
+		INFO_FILE: 'info.log',
+		ERROR_FILE: 'error.log'
+}
 
 /**
  * メールアカウント
@@ -59,8 +84,20 @@ exports.DB_PARAMS = app_config.db_params;
  * TWEET: つぶやき用に使用
  */
 var ACCOUNT = {
-	WATCH_TL: {},
-	TWEET: {}
+	WATCH_TL: {
+		screen_name:         '',
+		consumer_key:        '',
+		consumer_secret:     '',
+		access_token:        '',
+		access_token_secret: ''
+	},
+	TWEET: {
+		screen_name:         '',
+		consumer_key:        '',
+		consumer_secret:     '',
+		access_token:        '',
+		access_token_secret: ''	
+	}
 }
 
 
@@ -75,8 +112,9 @@ if (DEV_LEVEL == 1) {
 } else {
 	ACCOUNT.WATCH_TL = app_config.twitter.WATCH_TL;
 	ACCOUNT.TWEET    = app_config.twitter.TWEET;
-
 }
+
+//console.log(ACCOUNT);
 
 exports.ACCOUNT = ACCOUNT;
 
